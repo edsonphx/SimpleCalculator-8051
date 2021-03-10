@@ -79,7 +79,7 @@ pow:
 powLoop:
 	inc r3
 	mov a, r3;
-	CJNE a, 0x01, powCallMul
+	cjne a, 0x01, powCallMul
 	ret
 	
 powCallMul:
