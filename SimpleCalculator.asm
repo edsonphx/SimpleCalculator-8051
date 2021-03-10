@@ -1,7 +1,8 @@
 ; Intel 8051
 ;
 ; Simple calculator 
-; n1 (+ , -, *, /, ^) n2
+; n1 (+,-,*,/,^) n2
+;
 ; MaxValue: 0xFF
 ;
 ; 03/10/2021
@@ -14,14 +15,15 @@ org 0x00
 	mov p1, #0xFF
 	
 main: 
-	jnb p0.0, loadData		;load data if p0.0 is off
-	jnb p0.1, executeOperation	;execute operation if p0.1 is off
+	jnb p0.0, loadData		; load data if p0.0 is off
+	jnb p0.1, executeOperation	; execute operation if p0.1 is off
+	mov p2, r0			; output
 	jmp main
 
 loadData:
 	mov a, p1
 	push a
-	jnb p0.0, $ 	; wait for turn off pin
+	jnb p0.0, $ 	; wait for turn on pin
 	jmp main
 
 executeOperation:
@@ -48,7 +50,7 @@ executeOperation:
 	jmp wait
 
 wait:
-	jnb p0.1, $ 	; wait for turn off pin
+	jnb p0.1, $ 	; wait for turn on pin
 	jmp main
 	
 add:
