@@ -14,8 +14,8 @@ org 0x00
 	mov p1, #0xFF
 	
 main: 
-	jnb p0.0, loadData		;load data if p0.0 is on
-	jnb p0.1, executeOperation	;execute operation if p0.1 is on
+	jnb p0.0, loadData		;load data if p0.0 is off
+	jnb p0.1, executeOperation	;execute operation if p0.1 is off
 	jmp main
 
 loadData:
@@ -73,6 +73,7 @@ div:
 pow:
 	mov r1, b	; exponent
 	mov r2, a	; base
+	mov r0, a
 	mov r3, #0x00	; index
 
 powLoop:
@@ -83,6 +84,6 @@ powLoop:
 	
 powCallMul:
 	mov a, r2 ; load base
-	mov b, a
+	mov b, r0
 	call mul
 	jmp powLoop
