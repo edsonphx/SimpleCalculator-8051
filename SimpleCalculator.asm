@@ -1,7 +1,8 @@
 ; Intel 8051
 ;
 ; Simple calculator 
-; n1 (+,-,*,/,^) n2
+; n1 (+ , -, *, /, ^) n2
+; MaxValue: 0xFF
 ;
 ; 03/10/2021
 ;
