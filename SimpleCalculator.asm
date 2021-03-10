@@ -25,10 +25,10 @@ loadData:
 	jmp main
 
 executeOperation:
-	pop a		; load first number
-	pop b		; load operator
-	mov r1, b
 	pop b		; load second number
+	pop a		; load operator
+	mov r1, a
+	pop a		; load first number
 
 	addVerify: cjne r1, #0x01, subVerify
 	call add
