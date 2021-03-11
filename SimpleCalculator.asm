@@ -11,13 +11,10 @@
 
 org 0x00
 
-	mov p0, #0xFF
-	mov p1, #0xFF
-	
+	mov p2, #0x00
 main: 
 	jnb p0.0, loadData		; load data if p0.0 is off
 	jnb p0.1, executeOperation	; execute operation if p0.1 is off
-	mov p2, r0			; output
 	jmp main
 
 loadData:
@@ -50,6 +47,7 @@ executeOperation:
 	jmp wait
 
 wait:
+	mov p2, r0	; output
 	jnb p0.1, $ 	; wait for turn on pin
 	jmp main
 	
