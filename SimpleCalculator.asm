@@ -73,9 +73,9 @@ div:
 	ret
 
 pow:
+	mov r0, a
 	mov r1, b	; exponent
 	mov r2, a	; base
-	mov r0, a
 	mov r3, #0x00	; index
 
 powLoop:
